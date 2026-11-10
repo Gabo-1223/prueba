@@ -1,5 +1,6 @@
 import React from "react";
 import classNames from "classnames";
+import { NavLink } from "react-router-dom";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -15,18 +16,23 @@ import Person from "@material-ui/icons/Person";
 import Notifications from "@material-ui/icons/Notifications";
 import Dashboard from "@material-ui/icons/Dashboard";
 import Search from "@material-ui/icons/Search";
+import ShoppingCart from "@material-ui/icons/ShoppingCart";
+import LocalOffer from "@material-ui/icons/LocalOffer";
 // core components
 import CustomInput from "components/CustomInput/CustomInput.js";
 import Button from "components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-dashboard-react/components/headerLinksStyle.js";
+import { useCart } from "context/CartContext.js";
 
 const useStyles = makeStyles(styles);
 
 export default function AdminNavbarLinks() {
   const classes = useStyles();
+  const { totalItems } = useCart();
   const [openNotification, setOpenNotification] = React.useState(null);
   const [openProfile, setOpenProfile] = React.useState(null);
+
   const handleClickNotification = (event) => {
     if (openNotification && openNotification.contains(event.target)) {
       setOpenNotification(null);
@@ -37,6 +43,7 @@ export default function AdminNavbarLinks() {
   const handleCloseNotification = () => {
     setOpenNotification(null);
   };
+
   const handleClickProfile = (event) => {
     if (openProfile && openProfile.contains(event.target)) {
       setOpenProfile(null);
@@ -47,6 +54,7 @@ export default function AdminNavbarLinks() {
   const handleCloseProfile = () => {
     setOpenProfile(null);
   };
+
   return (
     <div>
       <div className={classes.searchWrapper}>
@@ -55,9 +63,9 @@ export default function AdminNavbarLinks() {
             className: classes.margin + " " + classes.search,
           }}
           inputProps={{
-            placeholder: "Search",
+            placeholder: "Buscar hardware, juegos, bundles...",
             inputProps: {
-              "aria-label": "Search",
+              "aria-label": "Buscar",
             },
           }}
         />
@@ -65,18 +73,47 @@ export default function AdminNavbarLinks() {
           <Search />
         </Button>
       </div>
-      <Button
-        color={window.innerWidth > 959 ? "transparent" : "white"}
-        justIcon={window.innerWidth > 959}
-        simple={!(window.innerWidth > 959)}
-        aria-label="Dashboard"
-        className={classes.buttonLink}
-      >
-        <Dashboard className={classes.icons} />
-        <Hidden mdUp implementation="css">
-          <p className={classes.linkText}>Dashboard</p>
-        </Hidden>
-      </Button>
+
+      <NavLink to="/admin/dashboard" style={{ textDecoration: "none" }}>
+        <Button
+          color={window.innerWidth > 959 ? "transparent" : "white"}
+          justIcon={window.innerWidth > 959}
+          simple={!(window.innerWidth > 959)}
+          aria-label="Dashboard"
+          className={classes.buttonLink}
+        >
+          <Dashboard className={classes.icons} />
+          <Hidden mdUp implementation="css">
+            <p className={classes.linkText}>Dashboard</p>
+          </Hidden>
+        </Button>
+      </NavLink>
+
+      {/* Botón de Carrito con Contador Dinámico */}
+      <NavLink to="/admin/cart" style={{ textDecoration: "none" }}>
+        <Button
+          color={window.innerWidth > 959 ? "transparent" : "white"}
+          justIcon={window.innerWidth > 959}
+          simple={!(window.innerWidth > 959)}
+          aria-label="Carrito de Compras"
+          className={classes.buttonLink}
+        >
+          <ShoppingCart className={classes.icons} />
+          {totalItems > 0 && (
+            <span
+              className={classes.notifications}
+              style={{ backgroundColor: "#16a34a", fontWeight: "bold" }}
+            >
+              {totalItems}
+            </span>
+          )}
+          <Hidden mdUp implementation="css">
+            <p className={classes.linkText}>Carrito ({totalItems})</p>
+          </Hidden>
+        </Button>
+      </NavLink>
+
+      {/* Notificaciones de Ofertas */}
       <div className={classes.manager}>
         <Button
           color={window.innerWidth > 959 ? "transparent" : "white"}
@@ -88,10 +125,10 @@ export default function AdminNavbarLinks() {
           className={classes.buttonLink}
         >
           <Notifications className={classes.icons} />
-          <span className={classes.notifications}>5</span>
+          <span className={classes.notifications}>3</span>
           <Hidden mdUp implementation="css">
             <p onClick={handleCloseNotification} className={classes.linkText}>
-              Notification
+              Notificaciones
             </p>
           </Hidden>
         </Button>
@@ -122,31 +159,19 @@ export default function AdminNavbarLinks() {
                       onClick={handleCloseNotification}
                       className={classes.dropdownItem}
                     >
-                      Mike John responded to your email
+                      🔥 33% OFF en Black Myth: Wukong (Steam Key)
                     </MenuItem>
                     <MenuItem
                       onClick={handleCloseNotification}
                       className={classes.dropdownItem}
                     >
-                      You have 5 new tasks
+                      🎁 Nuevo Bundle: Compra PC Lian Li y llévate 2 juegos gratis
                     </MenuItem>
                     <MenuItem
                       onClick={handleCloseNotification}
                       className={classes.dropdownItem}
                     >
-                      You{"'"}re now friend with Andrew
-                    </MenuItem>
-                    <MenuItem
-                      onClick={handleCloseNotification}
-                      className={classes.dropdownItem}
-                    >
-                      Another Notification
-                    </MenuItem>
-                    <MenuItem
-                      onClick={handleCloseNotification}
-                      className={classes.dropdownItem}
-                    >
-                      Another One
+                      ⚡ Stock renovado de procesadores Ryzen 7 7800X3D
                     </MenuItem>
                   </MenuList>
                 </ClickAwayListener>
@@ -155,6 +180,8 @@ export default function AdminNavbarLinks() {
           )}
         </Poppers>
       </div>
+
+      {/* Menú de Usuario */}
       <div className={classes.manager}>
         <Button
           color={window.innerWidth > 959 ? "transparent" : "white"}
@@ -167,7 +194,7 @@ export default function AdminNavbarLinks() {
         >
           <Person className={classes.icons} />
           <Hidden mdUp implementation="css">
-            <p className={classes.linkText}>Profile</p>
+            <p className={classes.linkText}>Angel Romero (@Gabo-1223)</p>
           </Hidden>
         </Button>
         <Poppers
@@ -197,20 +224,32 @@ export default function AdminNavbarLinks() {
                       onClick={handleCloseProfile}
                       className={classes.dropdownItem}
                     >
-                      Profile
+                      <NavLink
+                        to="/admin/user"
+                        style={{ color: "inherit", textDecoration: "none" }}
+                      >
+                        Perfil: Angel Romero
+                      </NavLink>
                     </MenuItem>
                     <MenuItem
                       onClick={handleCloseProfile}
                       className={classes.dropdownItem}
                     >
-                      Settings
+                      Materia: Electiva III
                     </MenuItem>
                     <Divider light />
                     <MenuItem
                       onClick={handleCloseProfile}
                       className={classes.dropdownItem}
                     >
-                      Logout
+                      <a
+                        href="https://github.com/Gabo-1223"
+                        target="_blank"
+                        rel="noreferrer"
+                        style={{ color: "#0284c7", textDecoration: "none" }}
+                      >
+                        GitHub: @Gabo-1223
+                      </a>
                     </MenuItem>
                   </MenuList>
                 </ClickAwayListener>

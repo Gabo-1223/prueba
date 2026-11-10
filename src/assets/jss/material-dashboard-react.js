@@ -70,87 +70,57 @@ const defaultFont = {
   lineHeight: "1.5em",
 };
 
-const primaryColor = ["#9c27b0", "#ab47bc", "#8e24aa", "#af2cc5"];
-const warningColor = ["#ff9800", "#ffa726", "#fb8c00", "#ffa21a"];
-const dangerColor = ["#f44336", "#ef5350", "#e53935", "#f55a4e"];
-const successColor = ["#4caf50", "#66bb6a", "#43a047", "#5cb860"];
-const infoColor = ["#00acc1", "#26c6da", "#00acc1", "#00d3ee"];
-const roseColor = ["#e91e63", "#ec407a", "#d81b60", "#eb3573"];
+// Paleta moderna, suave y agradable para la vista (Dark Slate & Soft Neons)
+const primaryColor = ["#6366f1", "#818cf8", "#4f46e5", "#4338ca"]; // Indigo gamer
+const warningColor = ["#f59e0b", "#fbbf24", "#d97706", "#b45309"]; // Ámbar cálido
+const dangerColor = ["#ef4444", "#f87171", "#dc2626", "#b91c1c"]; // Rojo suave
+const successColor = ["#10b981", "#34d399", "#059669", "#047857"]; // Esmeralda suave
+const infoColor = ["#0284c7", "#38bdf8", "#0369a1", "#0284c7"]; // Cyan / Sky
+const roseColor = ["#f43f5e", "#fb7185", "#e11d48", "#be123c"]; // Rose gamer
 const grayColor = [
-  "#999",
-  "#777",
-  "#3C4858",
-  "#AAAAAA",
-  "#D2D2D2",
-  "#DDD",
-  "#b4b4b4",
-  "#555555",
-  "#333",
-  "#a9afbb",
-  "#eee",
-  "#e7e7e7",
+  "#94a3b8",
+  "#64748b",
+  "#f8fafc",
+  "#94a3b8",
+  "#334155",
+  "#1e293b",
+  "#cbd5e1",
+  "#f1f5f9",
+  "#0f172a",
+  "#94a3b8",
+  "#1e293b",
+  "#334155",
 ];
 const blackColor = "#000";
 const whiteColor = "#FFF";
 
 const boxShadow = {
-  boxShadow:
-    "0 10px 30px -12px rgba(" +
-    hexToRgb(blackColor) +
-    ", 0.42), 0 4px 25px 0px rgba(" +
-    hexToRgb(blackColor) +
-    ", 0.12), 0 8px 10px -5px rgba(" +
-    hexToRgb(blackColor) +
-    ", 0.2)",
+  boxShadow: "0 10px 30px -12px rgba(0, 0, 0, 0.5)",
 };
 
 const primaryBoxShadow = {
   boxShadow:
-    "0 4px 20px 0 rgba(" +
-    hexToRgb(blackColor) +
-    ",.14), 0 7px 10px -5px rgba(" +
-    hexToRgb(primaryColor[0]) +
-    ",.4)",
+    "0 4px 20px 0 rgba(0, 0, 0, .3), 0 7px 10px -5px rgba(99, 102, 241, .4)",
 };
 const infoBoxShadow = {
   boxShadow:
-    "0 4px 20px 0 rgba(" +
-    hexToRgb(blackColor) +
-    ",.14), 0 7px 10px -5px rgba(" +
-    hexToRgb(infoColor[0]) +
-    ",.4)",
+    "0 4px 20px 0 rgba(0, 0, 0, .3), 0 7px 10px -5px rgba(2, 132, 199, .4)",
 };
 const successBoxShadow = {
   boxShadow:
-    "0 4px 20px 0 rgba(" +
-    hexToRgb(blackColor) +
-    ",.14), 0 7px 10px -5px rgba(" +
-    hexToRgb(successColor[0]) +
-    ",.4)",
+    "0 4px 20px 0 rgba(0, 0, 0, .3), 0 7px 10px -5px rgba(16, 185, 129, .4)",
 };
 const warningBoxShadow = {
   boxShadow:
-    "0 4px 20px 0 rgba(" +
-    hexToRgb(blackColor) +
-    ",.14), 0 7px 10px -5px rgba(" +
-    hexToRgb(warningColor[0]) +
-    ",.4)",
+    "0 4px 20px 0 rgba(0, 0, 0, .3), 0 7px 10px -5px rgba(245, 158, 11, .4)",
 };
 const dangerBoxShadow = {
   boxShadow:
-    "0 4px 20px 0 rgba(" +
-    hexToRgb(blackColor) +
-    ",.14), 0 7px 10px -5px rgba(" +
-    hexToRgb(dangerColor[0]) +
-    ",.4)",
+    "0 4px 20px 0 rgba(0, 0, 0, .3), 0 7px 10px -5px rgba(239, 68, 68, .4)",
 };
 const roseBoxShadow = {
   boxShadow:
-    "0 4px 20px 0 rgba(" +
-    hexToRgb(blackColor) +
-    ",.14), 0 7px 10px -5px rgba(" +
-    hexToRgb(roseColor[0]) +
-    ",.4)",
+    "0 4px 20px 0 rgba(0, 0, 0, .3), 0 7px 10px -5px rgba(244, 63, 94, .4)",
 };
 
 const warningCardHeader = {
@@ -187,14 +157,14 @@ const roseCardHeader = {
 const cardActions = {
   margin: "0 20px 10px",
   paddingTop: "10px",
-  borderTop: "1px solid " + grayColor[10],
+  borderTop: "1px solid rgba(255, 255, 255, 0.08)",
   height: "auto",
   ...defaultFont,
 };
 
 const cardHeader = {
   margin: "-20px 15px 0",
-  borderRadius: "3px",
+  borderRadius: "6px",
   padding: "15px",
 };
 
@@ -203,37 +173,31 @@ const card = {
   position: "relative",
   width: "100%",
   margin: "25px 0",
-  boxShadow: "0 1px 4px 0 rgba(" + hexToRgb(blackColor) + ", 0.14)",
-  borderRadius: "3px",
-  color: "rgba(" + hexToRgb(blackColor) + ", 0.87)",
-  background: whiteColor,
+  boxShadow: "0 4px 20px 0 rgba(0, 0, 0, 0.4)",
+  borderRadius: "8px",
+  color: "#f1f5f9",
+  background: "#1e293b",
+  border: "1px solid rgba(255, 255, 255, 0.08)",
 };
 
 const defaultBoxShadow = {
   border: "0",
-  borderRadius: "3px",
-  boxShadow:
-    "0 10px 20px -12px rgba(" +
-    hexToRgb(blackColor) +
-    ", 0.42), 0 3px 20px 0px rgba(" +
-    hexToRgb(blackColor) +
-    ", 0.12), 0 8px 10px -5px rgba(" +
-    hexToRgb(blackColor) +
-    ", 0.2)",
+  borderRadius: "6px",
+  boxShadow: "0 10px 20px -12px rgba(0, 0, 0, 0.5)",
   padding: "10px 0",
   transition: "all 150ms ease 0s",
 };
 
 const title = {
-  color: grayColor[2],
+  color: "#f8fafc",
   textDecoration: "none",
-  fontWeight: "300",
+  fontWeight: "600",
   marginTop: "30px",
   marginBottom: "25px",
   minHeight: "32px",
   fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
   "& small": {
-    color: grayColor[1],
+    color: "#94a3b8",
     fontWeight: "400",
     lineHeight: "1",
   },
@@ -254,6 +218,7 @@ const cardTitle = {
 
 const cardSubtitle = {
   marginTop: "-.375rem",
+  color: "#94a3b8",
 };
 
 const cardLink = {

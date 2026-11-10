@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import ListItem from "@material-ui/core/ListItem";
 import List from "@material-ui/core/List";
+import { NavLink } from "react-router-dom";
 // core components
 import styles from "assets/jss/material-dashboard-react/components/footerStyle.js";
 
@@ -18,38 +19,44 @@ export default function Footer(props) {
         <div className={classes.left}>
           <List className={classes.list}>
             <ListItem className={classes.inlineBlock}>
-              <a href="#home" className={classes.block}>
-                Home
-              </a>
+              <NavLink to="/admin/dashboard" className={classes.block}>
+                Inicio
+              </NavLink>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
-              <a href="#company" className={classes.block}>
-                Company
-              </a>
+              <NavLink to="/admin/hardware" className={classes.block}>
+                Hardware & PCs
+              </NavLink>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
-              <a href="#portfolio" className={classes.block}>
-                Portfolio
-              </a>
+              <NavLink to="/admin/games" className={classes.block}>
+                Juegos (Steam/Eneba)
+              </NavLink>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
-              <a href="#blog" className={classes.block}>
-                Blog
-              </a>
+              <NavLink to="/admin/bundles" className={classes.block}>
+                Promos & Bundles
+              </NavLink>
+            </ListItem>
+            <ListItem className={classes.inlineBlock}>
+              <NavLink to="/admin/cart" className={classes.block}>
+                Carrito
+              </NavLink>
             </ListItem>
           </List>
         </div>
         <p className={classes.right}>
           <span>
-            &copy; {1900 + new Date().getYear()}{" "}
+            &copy; 2026{" "}
+            <strong>NexusTech & Gaming</strong> | Proyecto de <strong>Angel Romero</strong> (Electiva III) -{" "}
             <a
-              href="https://www.creative-tim.com?ref=mdr-footer"
+              href="https://github.com/Gabo-1223"
               target="_blank"
+              rel="noreferrer"
               className={classes.a}
             >
-              Creative Tim
+              GitHub: @Gabo-1223
             </a>
-            , made with love for a better web
           </span>
         </p>
       </div>

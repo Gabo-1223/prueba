@@ -508,3 +508,95 @@ footer ul li a:hover {
 * {
   letter-spacing: normal !important;
 }
+
+
+/* =========================================================
+   🌙 Dark & Eye-Comfortable Theme (NexusTech & Gaming)
+   ========================================================= */
+
+body {
+  background-color: #0b1120 !important;
+  color: #f1f5f9 !important;
+}
+
+/* Background del Panel Principal */
+.makeStyles-mainPanel-2,
+.makeStyles-mainPanel-1,
+div[class*="mainPanel"] {
+  background-color: #0b1120 !important;
+}
+
+/* Headers y Tipografía */
+h1, h2, h3, h4, h5, h6 {
+  color: #f8fafc !important;
+}
+
+/* Tarjetas y Papeles */
+.MuiPaper-root {
+  background-color: #1e293b !important;
+  color: #f1f5f9 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Tablas */
+.MuiTableCell-root {
+  color: #cbd5e1 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+}
+
+.MuiTableCell-head {
+  color: #94a3b8 !important;
+  font-weight: bold !important;
+}
+
+/* Menús Desplegables y Dropdowns */
+.MuiMenuList-root,
+.MuiPaper-elevation8,
+.MuiPaper-elevation4 {
+  background-color: #1e293b !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6) !important;
+}
+
+.MuiMenuItem-root {
+  color: #e2e8f0 !important;
+  font-size: 13px !important;
+}
+
+.MuiMenuItem-root:hover {
+  background-color: rgba(99, 102, 241, 0.15) !important;
+  color: #818cf8 !important;
+}
+
+/* Inputs y Formularios */
+.MuiInputBase-input {
+  color: #f8fafc !important;
+}
+
+.MuiFormLabel-root {
+  color: #94a3b8 !important;
+}
+
+.MuiOutlinedInput-notchedOutline {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(99, 102, 241, 0.5) !important;
+}
+
+/* Scrollbars Modernas y Cómodas */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0b1120;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
